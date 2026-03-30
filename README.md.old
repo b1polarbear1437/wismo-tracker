@@ -1,0 +1,78 @@
+🚚 WISMO AI Tracker
+> AI-powered "Where Is My Order?" support automation tool for e-commerce teams.
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![Claude AI](https://img.shields.io/badge/Claude-AI-orange?style=flat-square)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+---
+🧠 What It Does
+WISMO (Where Is My Order?) requests are one of the most common and repetitive e-commerce support tickets. This tool automates the entire response workflow using Claude AI.
+Paste a customer message + order details and instantly get:
+✅ WISMO Detection — identifies if the message is an order inquiry
+📋 Issue Summary — one-line summary of the customer's concern
+💬 Customer-Friendly Reply — warm, professional reply ready to send
+🗒️ Internal Support Note — brief note for your support team
+🚨 Escalation Flag — automatically flags delayed or problematic orders
+😤 Sentiment Detection — detects if the customer is frustrated, neutral, or urgent
+---
+🛠️ Tech Stack
+Layer	Tool
+Framework	Next.js 15 (App Router)
+Styling	Tailwind CSS
+AI	Anthropic Claude API
+Deployment	Vercel
+---
+🚀 Getting Started
+Prerequisites
+Node.js v18+
+Anthropic API key — get one at console.anthropic.com
+Installation
+```bash
+# Clone the repo
+git clone https://github.com/b1polarbear1437/wismo-tracker.git
+cd wismo-tracker
+
+# Install dependencies
+npm install
+npm install @anthropic-ai/sdk
+
+# Add your API key
+echo "ANTHROPIC_API_KEY=your-key-here" > .env.local
+
+# Run locally
+npm run dev
+```
+Open http://localhost:3000 in your browser.
+---
+📁 Project Structure
+```
+wismo-tracker/
+├── app/
+│   ├── page.jsx              ← Main form UI
+│   ├── layout.jsx            ← App layout
+│   ├── globals.css           ← Global styles
+│   └── api/analyze/
+│       └── route.js          ← Claude API endpoint
+└── components/
+    └── ResultCard.jsx        ← Output display
+```
+---
+💡 How It Works
+User inputs a customer message + order details
+The app sends the data to a Next.js API route
+The API route calls Claude with a structured prompt
+Claude returns a JSON response with all outputs
+The UI renders the results with copy buttons
+---
+🔮 Future Improvements
+[ ] Connect to Shopify to auto-fill order details
+[ ] Add tracking number lookup via EasyPost or ShipStation
+[ ] Export analyzed tickets to CSV
+[ ] Multi-turn conversation support
+[ ] Dashboard to track escalation trends
+---
+📄 License
+MIT License — see LICENSE for details.
+---
+👤 Author
+Jv Valdez — @b1polarbear1437

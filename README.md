@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚚 WISMO AI Tracker
 
-## Getting Started
+> AI-powered "Where Is My Order?" support automation tool for e-commerce teams.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![Claude AI](https://img.shields.io/badge/Claude-AI-orange?style=flat-square)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=flat-square&logo=vercel)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+
+---
+
+## 🧠 What It Does
+
+WISMO (Where Is My Order?) requests are one of the most common and repetitive e-commerce support tickets. This tool automates the entire response workflow using Claude AI.
+
+Paste a customer message + order details and instantly get:
+
+- ✅ **WISMO Detection** — identifies if the message is an order inquiry
+- 📋 **Issue Summary** — one-line summary of the customer's concern
+- 💬 **Customer-Friendly Reply** — warm, professional reply ready to send
+- 🗒️ **Internal Support Note** — brief note for your support team
+- 🚨 **Escalation Flag** — automatically flags delayed or problematic orders
+- 😤 **Sentiment Detection** — detects if the customer is frustrated, neutral, or urgent
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Tool |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Styling | Tailwind CSS |
+| AI | Anthropic Claude API |
+| Deployment | Vercel |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js v18+
+- Anthropic API key — get one at [console.anthropic.com](https://console.anthropic.com)
+
+### Installation
 
 ```bash
+# Clone the repo
+git clone https://github.com/b1polarbear1437/wismo-tracker.git
+cd wismo-tracker
+
+# Install dependencies
+npm install
+npm install @anthropic-ai/sdk
+
+# Add your API key
+echo "ANTHROPIC_API_KEY=your-key-here" > .env.local
+
+# Run locally
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+wismo-tracker/
+├── app/
+│   ├── page.jsx              ← Main form UI
+│   ├── layout.jsx            ← App layout
+│   ├── globals.css           ← Global styles
+│   └── api/analyze/
+│       └── route.js          ← Claude API endpoint
+└── components/
+    └── ResultCard.jsx        ← Output display
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💡 How It Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. User inputs a customer message + order details
+2. The app sends the data to a Next.js API route
+3. The API route calls Claude with a structured prompt
+4. Claude returns a JSON response with all outputs
+5. The UI renders the results with copy buttons
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔮 Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Connect to Shopify to auto-fill order details
+- [ ] Add tracking number lookup via EasyPost or ShipStation
+- [ ] Export analyzed tickets to CSV
+- [ ] Multi-turn conversation support
+- [ ] Dashboard to track escalation trends
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+## 👤 Author
+
+**Jv Valdez** — [@b1polarbear1437](https://github.com/b1polarbear1437)
